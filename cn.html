@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1.0, width=device-width, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+    <meta name="title" content="Loccitane - Provence in Seoul">
+    <meta property="" content="">
+    <title>Loccitane - Provence in Seoul</title>
+    <link rel="stylesheet" type="text/css" href="css/main.css" />
+
+    <style>
+        .info_text {
+            font-family: 'Microsoft Yahei', sans-serif !important;
+        }
+
+
+        /** mobile **/
+
+        @media only screen and (max-width: 599px) {
+            .container {
+                background-image: url(images/Loccitane_Provence_mob_bg_CN.jpg);
+            }
+
+            .ex_m_section {
+                bottom: 0;
+            }
+
+            .ex_title {
+                font-size: 2.3em;
+            }
+
+
+
+            .info_text {
+                font-size: 1.5em !important;
+            }
+
+            .btn {
+                font-size: 1.5em;
+            }
+
+
+            .lang_text {
+                font-size: 1.2em;
+            }
+
+        }
+
+
+
+
+        /** tablet portrait **/
+
+        @media only screen and (min-width: 600px) and (max-width: 1023px) {
+            .container {
+                background-image: url(images/Loccitane_Provence_tab_bg_CN.jpg);
+            }
+
+            .ex_title {
+                font-size: 4em;
+            }
+
+            .info_text {
+                font-size: 3.2em;
+            }
+
+
+        }
+
+        /** tablet landscape and old desktops **/
+
+        @media only screen and (min-width: 1024px) and (max-width: 1279px) {
+            .container {
+                background-image: url(images/Loccitane_Provence_bg_CN.jpg);
+            }
+
+
+            .ex_m_section {
+                bottom: 5%;
+            }
+        }
+
+        /** most desktops **/
+
+        @media only screen and (min-width: 1280px) {
+            .container {
+                background-image: url(images/Loccitane_Provence_bg_CN.jpg);
+            }
+
+            .start_game {
+                max-height: 54%;
+                padding: 4% 0 10% 0;
+            }
+
+            .ex_m_section {
+                bottom: 7%;
+            }
+
+            .info_text {
+                font-size: 3.0em;
+            }
+        }
+    </style>
+
+
+    <!-- Google Tag Manager -->
+    <script>
+        (function(w, d, s, l, i) {
+            w[l] = w[l] || [];
+            w[l].push({
+                'gtm.start': new Date().getTime(),
+                event: 'gtm.js'
+            });
+            var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s),
+                dl = l != 'dataLayer' ? '&l=' + l : '';
+            j.async = true;
+            j.src =
+                'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+            f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-NZDRX7X');
+    </script>
+    <!-- End Google Tag Manager -->
+    <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+    <!-- Game time -->
+    <script>
+        var filter = "win16|win32|win64|mac|macintel";
+
+
+        // 새고로침 할 때 항상 스크롤 상단 고정
+
+        $(window).on('beforeunload', function() {
+            $(window).scrollTop(0);
+        });
+
+        var scrollLength;
+
+        // 게임 상태
+        var gameState = '';
+
+        var picId = [4, 3, 2, 1];
+        var quizId = ['A', 'B', 'C', 'D'];
+        var answerId = '';
+        var youranswer = [];
+
+        var num = 0;
+
+
+        // 게임 시작
+        function startGame() {
+
+            $('#start_game').fadeOut(200); // 안내 문구 가리기
+
+            $('html, body').stop().animate({
+                scrollTop: 800
+            });
+            $('#landmark').removeClass('hidden');
+            $('#landmark').removeClass('m_hidden');
+            $('#answers').removeClass('hidden');
+            $('#answers').removeClass('m_hidden');
+
+        }
+
+        function startGame_pc() {
+            $('#start_game').fadeOut(200); // 안내 문구 가리기
+
+            $('html, body').stop().animate({
+                scrollTop: 250
+            });
+            $('#landmark').removeClass('hidden');
+            $('#landmark').removeClass('m_hidden');
+            $('#answers').removeClass('hidden');
+            $('#answers').removeClass('m_hidden');
+
+
+        }
+
+        $(document).on('click', '#startBtn', function() {
+
+            $("#quiz_id").text(quizId[0]);
+
+            if (navigator.platform) {
+                if (filter.indexOf(navigator.platform.toLowerCase()) < 0) {
+                    //mobile 
+
+
+                    if (gameState == '') {
+                        startGame();
+                        gameState = 'alreadyStart'
+                    }
+
+                } else {
+                    //pc 
+
+                    if (gameState == '') {
+                        startGame_pc();
+                        gameState = 'alreadyStart'
+                    }
+                }
+            }
+
+        });
+
+
+
+        $(document).on('click', '#answers button', function() {
+
+            if ($(this).hasClass('checked')) return; // 선택된 버튼을 또 누른 경우              
+            $(this).addClass('checked'); // 답을 선택된 것을 구분하기 위한 class 추가
+
+
+            if (youranswer.length == 0) num = 0;
+            if (youranswer.length != 4) num = num + 1;
+
+            answerId = this.id;
+
+            youranswer.push(answerId);
+
+            $(this).addClass('checked');
+            $('#pic_' + (num - 1)).addClass('hidden');
+
+
+            if (youranswer.length != 4) {
+
+                //데스크탑
+
+                $("#quiz_id").text(quizId[num]);
+
+                $('#pic_' + (num - 1)).removeClass('hidden');
+                $('#pic_' + num).addClass('hidden');
+                $('#pic_' + (num - 1) + '_on').addClass('hidden');
+                $('#pic_' + num + '_on').removeClass('hidden');
+
+
+                // 모바일
+                $('#pic_' + (num - 1) + "_m").addClass('m_hidden');
+                $('#pic_' + num + "_m").removeClass('m_hidden');
+
+
+
+                return;
+            }
+
+
+
+            picId = picId.join(',');
+            youranswer = youranswer.join(',');
+
+            if (picId == youranswer) {
+                youranswer = [];
+                $('#end_game').show();
+
+            } else {
+                $('#retry_game').show();
+            }
+
+
+
+        });
+
+
+
+
+        // 재시작
+        function StartAgain() {
+            location.reload();
+        }
+
+        // 세션 초기화
+        $(window).unload(function() {
+            localStorage.clear();
+            sessionStorage.clear();
+        });
+    </script>
+</head>
+
+
+<body>
+
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NZDRX7X" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript)-->
+    <header id="header" class="hidden t_hidden">
+        <img src="images/l_logo.png" />
+    </header>
+
+    <section class="container">
+        <div class="Desktop_wrap">
+            <div id="start_game" class="start_game">
+                <div class="start_game_wrap">
+                    <div class="info_text">
+                        <h2>你对首尔了解多少?</h2> <br> 参加游戏可以获赠<br>L'OCCITANE行李箱贴纸1张*<br>
+                    </div>
+                    <div class="center btn_section">
+                        <button class="btn" id="startBtn">进入游戏</button></div>
+
+                </div>
+                <div class="lang_text">请选择语言</div>
+                <div class="lang"><a href="index.html" class="kr">KR</a><a href="cn.html" class="cn">CN</a></div>
+            </div>
+            <div class="upper_section"></div>
+            <div id="landmark" class="landmark_section hidden m_hidden">
+                <div class="landmark_wrap">
+                    <div class="landmark_items_1">
+                        <div class="landmark_items"><img id="pic_0_m" class="hidden" src="images/Landmark_m_A.png" />
+                            <img id="pic_0" class="hidden m_hidden" src="images/Landmark_A.png" />
+                            <img id="pic_0_on" class="m_hidden" src="images/Landmark_A_on.png"></div>
+                        <div class="landmark_items right"><img id="pic_1_m" class="hidden m_hidden" src="images/Landmark_m_B.png" />
+                            <img id="pic_1" class="m_hidden" src="images/Landmark_B.png" />
+                            <img id="pic_1_on" class="hidden m_hidden" src="images/Landmark_B_on.png"></div>
+                    </div>
+                    <div class="landmark_items_2">
+                        <div class="landmark_items"><img id="pic_2_m" class="hidden m_hidden" src="images/Landmark_m_C.png" />
+                            <img id="pic_2" class="m_hidden" src="images/Landmark_C.png" />
+                            <img id="pic_2_on" class="hidden m_hidden" src="images/Landmark_C_on.png"></div>
+                        <div class="landmark_items right"><img id="pic_3_m" class="m_hidden hidden" src="images/Landmark_m_D.png" />
+                            <img id="pic_3" class="m_hidden" src="images/Landmark_D.png" />
+                            <img id="pic_3_on" class="hidden m_hidden" src="images/Landmark_D_on.png"></div>
+                    </div>
+                </div>
+            </div>
+            <div id="answers" class="ex_m_section  hidden m_hidden">
+                <div class="ex_title">
+                    <font class="m_hidden">──────────</font>
+                    <font style="font-weight: 800">
+                        请为地标
+                        <font id="quiz_id"></font>配上正确的名称</font>
+                    <font class="m_hidden">──────────</font>
+                </div>
+
+                <div class="ex_m_wrap">
+                    <div class="ex_1">
+                        <div class="ex_m_1"><button id="1" class="btn a_btn margin-right">N首尔塔</button></div>
+                        <div class="ex_m_2"><button id="2" class="btn a_btn margin-right">南大门</button></div>
+                    </div>
+                    <div class="ex_2">
+                        <div class="ex_m_1"><button id="3" class="btn a_btn">清溪川</button></div>
+                        <div class="ex_m_2"><button id="4" class="btn a_btn margin-left">明洞</button></div>
+                    </div>
+                </div>
+            </div>
+            <div id="end_game" class="end_game hidden m_hidden">
+                <div class="close_btn_wrap">
+                    <div class="close_btn"><img src="images/close_btn.png" onclick="StartAgain()" /></div>
+                </div>
+                <div class="end_game_wrap">
+                    <div class="info_text">
+                        <h1>配对成功！</h1>
+                        <br>
+                        <font style="font-size:1em;">前往新罗免税店欧舒丹专柜
+                            <br> 出示此画面领取行李箱贴纸*
+                        </font><br>
+                        <div class="normal">截图或拍照「配对成功」画面即可<br><br>
+                            <div class="font_R">换领日期：2018年7月16日 ~ 赠完为止<br>
+                                换领地点：新罗免税店首尔店欧舒丹专柜<br>(首尔市中区东湖路249)、<br>
+                                新罗免税店仁川机场店欧舒丹专柜<br>(仁川广域市中区空港路272仁川机场3楼安检台)<br>(仁川广域市中区空港路272新罗免税店仁川机场店T2航站楼)
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="retry_game" class="retry_game hidden m_hidden">
+                <div class="rety_game_wrap">
+                    <div class="close_btn_wrap">
+                        <div class="close_btn"><img src="images/close_btn.png" onclick="StartAgain()" id="close_btn" /></div>
+                    </div>
+                    <div class="info_text">
+                        <h1>配对失败……</h1>
+                        <br>请回到首页重新挑战！<br>
+
+                    </div>
+
+                    <div class="retry_btn center">
+                        <img src="images/retry_icon.png" onclick="StartAgain()" id="retry_btn" /></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer id="footer">
+
+
+    </footer>
+
+</body>
+
+</html>

@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1.0, width=device-width, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+    <meta name="title" content="Loccitane - Provence in Seoul">
+    <meta property="" content="">
+    <title>Loccitane - Provence in Seoul</title>
+    <link rel="stylesheet" type="text/css" href="css/main.css" />
+
+
+    <!-- Google Tag Manager -->
+    <script>
+        (function(w, d, s, l, i) {
+            w[l] = w[l] || [];
+            w[l].push({
+                'gtm.start': new Date().getTime(),
+                event: 'gtm.js'
+            });
+            var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s),
+                dl = l != 'dataLayer' ? '&l=' + l : '';
+            j.async = true;
+            j.src =
+                'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+            f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-NZDRX7X');
+    </script>
+    <!-- End Google Tag Manager -->
+    <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+    <!-- Game time -->
+    <script>
+        var filter = "win16|win32|win64|mac|macintel";
+
+
+        // 새고로침 할 때 항상 스크롤 상단 고정
+
+        $(window).on('beforeunload', function() {
+            $(window).scrollTop(0);
+        });
+
+        var scrollLength;
+
+        // 게임 상태
+        var gameState = '';
+
+        var picId = [4, 3, 2, 1];
+        var quizId = ['A', 'B', 'C', 'D'];
+        var answerId = '';
+        var youranswer = [];
+
+        var num = 0;
+
+
+        // 게임 시작
+        function startGame() {
+
+            $('#start_game').fadeOut(200); // 안내 문구 가리기
+
+            $('html, body').stop().animate({
+                scrollTop: 800
+            });
+
+            $('#landmark').removeClass('hidden');
+            $('#landmark').removeClass('m_hidden');
+            $('#answers').removeClass('hidden');
+            $('#answers').removeClass('m_hidden');
+
+        }
+
+        function startGame_pc() {
+
+            $('#start_game').fadeOut(200); // 안내 문구 가리기
+
+            $('html, body').stop().animate({
+                scrollTop: 250
+            });
+            $('#landmark').removeClass('hidden');
+            $('#landmark').removeClass('m_hidden');
+            $('#answers').removeClass('hidden');
+            $('#answers').removeClass('m_hidden');
+
+
+        }
+
+        $(document).on('click', '#startBtn', function() {
+
+            $("#quiz_id").text(quizId[0]);
+
+            if (navigator.platform) {
+                if (filter.indexOf(navigator.platform.toLowerCase()) < 0) {
+                    //mobile 
+
+                    if (gameState == '') {
+                        startGame();
+                        gameState = 'alreadyStart'
+                    }
+
+                } else {
+                    //pc 
+
+
+                    if (gameState == '') {
+                        startGame_pc();
+                        gameState = 'alreadyStart'
+                    }
+                }
+            }
+
+        });
+
+        $(document).on('click', '#answers button', function() {
+
+            if ($(this).hasClass('checked')) return; // 선택된 버튼을 또 누른 경우              
+            $(this).addClass('checked'); // 답을 선택된 것을 구분하기 위한 class 추가
+
+
+            if (youranswer.length == 0) num = 0;
+            if (youranswer.length != 4) num = num + 1;
+
+            answerId = this.id;
+
+            youranswer.push(answerId);
+
+            $(this).addClass('checked');
+            $('#pic_' + (num - 1)).addClass('hidden');
+
+
+            if (youranswer.length != 4) {
+
+                //데스크탑
+
+                $("#quiz_id").text(quizId[num]);
+
+                $('#pic_' + (num - 1)).removeClass('hidden');
+                $('#pic_' + num).addClass('hidden');
+                $('#pic_' + (num - 1) + '_on').addClass('hidden');
+                $('#pic_' + num + '_on').removeClass('hidden');
+
+
+                // 모바일
+                $('#pic_' + (num - 1) + "_m").addClass('m_hidden');
+                $('#pic_' + num + "_m").removeClass('m_hidden');
+
+                return;
+            }
+
+            picId = picId.join(',');
+            youranswer = youranswer.join(',');
+
+            if (picId == youranswer) {
+                youranswer = [];
+                $('#end_game').show();
+            } else {
+                $('#retry_game').show();
+            }
+
+        });
+
+        // 재시작
+        function StartAgain() {
+            location.reload();
+        }
+    </script>
+</head>
+
+<body>
+
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NZDRX7X" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript)-->
+    <header id="header" class="hidden t_hidden">
+        <img src="images/l_logo.png" />
+    </header>
+
+    <section class="container">
+        <div class="Desktop_wrap">
+            <div id="start_game" class="start_game">
+                <div class="start_game_wrap">
+                    <div class="info_text">
+                        <h2>서울을 얼마나 잘 알고 계신가요?</h2> <br> 게임에 참여하시면 *록시땅 캐리어 스티커를 드립니다! <br>
+                    </div>
+                    <div class="center btn_section">
+                        <button class="btn" id="startBtn">게임 시작</button></div>
+                </div>
+                <div class="lang_text">언어를 선택해주세요</div>
+                <div class="lang"><a href="cn.html" class="cn">CN</a><a class="kr" href="index.html">KR</a></div>
+            </div>
+            <div class="upper_section"></div>
+            <div id="landmark" class="landmark_section hidden m_hidden">
+                <div class="landmark_wrap">
+                    <div class="landmark_items_1">
+                        <div class="landmark_items"><img id="pic_0_m" class="hidden" src="images/Landmark_m_A.png" />
+                            <img id="pic_0" class="hidden m_hidden" src="images/Landmark_A.png" />
+                            <img id="pic_0_on" class="m_hidden" src="images/Landmark_A_on.png"></div>
+                        <div class="landmark_items right"><img id="pic_1_m" class="hidden m_hidden" src="images/Landmark_m_B.png" />
+                            <img id="pic_1" class="m_hidden" src="images/Landmark_B.png" />
+                            <img id="pic_1_on" class="hidden m_hidden" src="images/Landmark_B_on.png"></div>
+                    </div>
+                    <div class="landmark_items_2">
+                        <div class="landmark_items"><img id="pic_2_m" class="hidden m_hidden" src="images/Landmark_m_C.png" />
+                            <img id="pic_2" class="m_hidden" src="images/Landmark_C.png" />
+                            <img id="pic_2_on" class="hidden m_hidden" src="images/Landmark_C_on.png"></div>
+                        <div class="landmark_items right"><img id="pic_3_m" class="m_hidden hidden" src="images/Landmark_m_D.png" />
+                            <img id="pic_3" class="m_hidden" src="images/Landmark_D.png" />
+                            <img id="pic_3_on" class="hidden m_hidden" src="images/Landmark_D_on.png"></div>
+                    </div>
+                </div>
+            </div>
+            <div id="answers" class="ex_m_section  hidden m_hidden">
+                <div class="ex_title">
+                    <font class="m_hidden">──────────</font>
+                    <font style="font-weight: 800">
+                        <font id="quiz_id"></font>의 랜드마크 명을 클릭하세요
+                    </font>
+                    <font class="m_hidden">──────────</font>
+                </div>
+                <div class="ex_m_wrap">
+                    <div class="ex_1">
+                        <div class="ex_m_1"><button id="1" class="btn a_btn margin-right">서울타워</button></div>
+                        <div class="ex_m_2"><button id="2" class="btn a_btn margin-right">남대문</button></div>
+                    </div>
+                    <div class="ex_2">
+                        <div class="ex_m_1"><button id="3" class="btn a_btn">청계천</button></div>
+                        <div class="ex_m_2"><button id="4" class="btn a_btn margin-left">명동</button></div>
+                    </div>
+                </div>
+            </div>
+            <div id="end_game" class="end_game hidden m_hidden">
+                <div class="close_btn_wrap">
+                    <div class="close_btn"><img src="images/close_btn.png" onclick="StartAgain()" /></div>
+                </div>
+                <div class="end_game_wrap">
+                    <div class="info_text">
+                        <h1>정답을 모두 맞추셨습니다!</h1>
+                        <br>신라면세점 록시땅 매장에서 화면을 제시하여 <br class="m_hidden"> *캐리어 스티커를 받으세요.<br>
+                        <div class="normal">성공 화면을 캡쳐하여 매장 직원에게 보여주세요.<br><br>
+                            <div class="font_R">선착순, 한정 수량으로 <span class="highlight"> 재고 소진 시 수령이 불가할 수 있습니다. </span> <br>(기간: 2018년 7월 16일 ~ 소진 시) <br><br> 해당 매장: 록시땅 신라면세점 서울점<br>(서울특별시 중구 동호로 249)<br>록시땅 신라면세점 인천공항점<br>(인천광역시 중구 공항로 272 인천국제공항 3층 출국장)<br>(인천광역시 중구 공항로 272 인천국제공항 제2여객터미널)</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="retry_game" class="retry_game hidden m_hidden">
+                <div class="rety_game_wrap">
+                    <div class="close_btn_wrap">
+                        <div class="close_btn"><img src="images/close_btn.png" onclick="StartAgain()" id="close_btn" /></div>
+                    </div>
+                    <div class="info_text">
+                        <h1>매치에 실패하셨습니다</h1>
+                        <br> 처음으로 돌아가 다시 시작해주세요!
+                        <br>
+
+                    </div>
+
+                    <div class="retry_btn center">
+                        <img src="images/retry_icon.png" onclick="StartAgain()" id="retry_btn" /></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer id="footer">
+
+
+    </footer>
+
+</body>
+
+</html>

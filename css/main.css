@@ -1,0 +1,1289 @@
+/* font */
+
+@import url(http://fonts.googleapis.com/earlyaccess/notosanskr.css);
+font-family: 'Noto Sans KR',
+'Microsoft Yahei',
+sans-serif;
+/* Common */
+
+* {
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+body,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+ul,
+ol,
+li,
+dl,
+dt,
+dd,
+table,
+th,
+td,
+form,
+fieldset,
+legend,
+input,
+textarea,
+button,
+select {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body,
+input,
+textarea,
+select,
+button,
+table {
+    font-family: 'Noto Sans KR', 'Microsoft Yahei', sans-serif;
+    font-size: 12px;
+    color: #16243e;
+}
+
+* {
+    transition: 200ms;
+    transition-timing-function: ease-in-out;
+    -webkit-transition: 200ms;
+    -webkit-transition-timing-function: easie-in-out;
+}
+
+
+h1 {
+    font-size: 1.5em;
+    font-weight: 800;
+}
+
+.normal {
+    font-size: 0.6em;
+    font-weight: 400;
+    padding-top: 2%;
+}
+
+.font_R {
+    font-size: 0.9em;
+    color: #e10101;
+}
+
+img,
+fieldset {
+    border: 0;
+    outline: none;
+    text-decoration: none;
+}
+
+ul,
+ol {
+    list-style: none;
+}
+
+em,
+address {
+    font-style: normal
+}
+
+a {
+    text-decoration: underline;
+    color: white;
+    cursor: pointer;
+}
+
+a:link {
+    text-decoration: underline;
+    color: white;
+    cursor: pointer;
+}
+
+a:visited {
+    text-decoration: underline;
+    color: white;
+    cursor: pointer;
+}
+
+a:active {
+    text-decoration: underline;
+    color: white;
+    cursor: pointer;
+}
+
+a:hover {
+    text-decoration: underline;
+    color: white;
+    cursor: pointer;
+}
+
+button {
+    cursor: pointer;
+}
+
+#close_btn,
+#retry_btn {
+    cursor: pointer;
+}
+
+.lang {
+    font-size: 2em;
+    font-weight: 800;
+    padding-top: 3%;
+    text-align: center;
+    color: white;
+}
+
+/*  Class  */
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    background-color: #fccb2a;
+}
+
+
+.center {
+    text-align: center;
+}
+
+
+
+
+.not {
+    opacity: 0.5;
+}
+
+.checked {
+    opacity: 0.5;
+}
+
+
+
+
+/** mobile **/
+
+/** iPhone Plus **/
+
+@media only screen and (max-width: 599px) {
+
+    #header {
+        position: fixed;
+        left: 0px;
+        top: 0px;
+        height: auto;
+        width: 100%;
+        z-index: 2;
+        background: #16243e;
+        padding: 5% 3% 5% 30%;
+    }
+
+    #footer {
+        position: absolute;
+        height: 60px;
+        right: 0;
+        z-index: 1;
+        width: 100%;
+
+    }
+
+    .lang {
+        font-size: 1.8em;
+        font-weight: 800;
+        text-align: center;
+        color: white;
+    }
+
+    #header img {
+        width: 40%;
+    }
+
+    .container {
+        width: 100%;
+        background-image: url(../images/Loccitane_Provence_mob_bg.jpg);
+        background-repeat: no-repeat;
+        background-size: 100% auto;
+        height: 205vh;
+        margin: 3px auto 0;
+        position: relative;
+    }
+
+
+    /* 상단 */
+    .upper_section {
+        position: absolute;
+        width: 100%;
+        height: 400px;
+        left: 0px;
+        top: 0px;
+    }
+
+    /* 중앙 사진 */
+    .landmark_items_1,
+    .landmark_items_2 {
+        list-style: none;
+        width: 100%;
+    }
+
+    .landmark_items_1 img,
+    .landmark_items_2 img {
+        max-width: 100%;
+        max-height: 100%;
+    }
+
+    .landmark_section {
+        position: absolute;
+        left: 0%;
+        bottom: 22%;
+        max-width: 100%;
+        text-align: center;
+        padding: 0 40px;
+    }
+
+    /* 하단 */
+    .ex_m_section {
+        width: 100%;
+        bottom: 0;
+        position: absolute;
+    }
+
+    .ex_title {
+        font-size: 1.8em;
+        text-align: center;
+        margin-bottom: 9%;
+        width: 100%;
+
+    }
+
+    .ex_m_wrap {
+        width: 90%;
+        height: 19em;
+        border-radius: 15px;
+        position: relative;
+        margin-left: 6%;
+        background-color: #FAC225;
+    }
+
+    .ex_1 {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        padding: 10% 6% 0% 6%;
+    }
+
+    .ex_2 {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: 35% 6% 0% 6%;
+    }
+
+    .ex_m_1 {
+        float: left;
+    }
+
+    .ex_m_2 {
+        float: right;
+    }
+
+
+    .btn {
+        border: none;
+        border-radius: 12px;
+        font-size: 2.0em;
+        color: white;
+        font-weight: 600;
+        width: 150px;
+        height: 60px;
+        background-color: #16243e;
+    }
+
+    .btn_section {
+        padding: 0 24%;
+    }
+
+    .margin-center {
+        width: 50%;
+        margin: auto;
+
+    }
+
+    .m_hidden {
+        display: none;
+    }
+
+    .start_game {
+        background-color: #fccb2af0;
+        width: 85%;
+        height: 220px;
+        margin: 0 auto;
+        z-index: 1;
+        position: fixed;
+        top: 20%;
+        left: 8%;
+        border-radius: 2%;
+        border: 1px solid;
+        padding: 20% 0 35% 0;
+    }
+
+
+    .end_game {
+        background-color: #fccb2af0;
+        width: 85%;
+        margin: 0 auto;
+        z-index: 1;
+        position: fixed;
+        bottom: 25%;
+        left: 8%;
+        border-radius: 2.0%;
+        border: 1px solid;
+        padding: 80px 0 80px 0;
+    }
+
+    .retry_game {
+        background-color: #fccb2af0;
+        width: 85%;
+        margin: 0 auto;
+        z-index: 1;
+        position: fixed;
+        bottom: 25%;
+        left: 8%;
+        border-radius: 2.0%;
+        border: 1px solid;
+        padding: 80px 0 100px 0;
+    }
+
+    .normal {
+        font-size: 0.7em;
+
+    }
+
+    .lang_text {
+        text-align: center;
+        font-weight: 800;
+        font-size: 1em;
+        padding-top: 3.5%;
+    }
+
+
+    .info_text {
+        text-align: center;
+        font-family: 'Noto Sans KR', 'Microsoft Yahei', sans-serif;
+        font-weight: 700;
+        font-size: 1.4em;
+        word-break: keep-all;
+        padding: 4% 10% 8% 10%;
+    }
+
+    .retry_btn {
+        margin: auto;
+        width: 21%
+    }
+
+    .retry_btn img {
+        width: 100%;
+    }
+
+    .close_btn_wrap {
+        position: absolute;
+        left: 0px;
+        top: 0px;
+        height: 60px;
+        width: 100%;
+    }
+
+    .close_btn img {
+        top: 20%;
+        right: 3%;
+        width: 10%;
+        height: auto;
+        position: absolute;
+        -webkit-transition: -webkit-transform .25s, opacity .25s;
+        -moz-transition: -moz-transform .25s, opacity .25s;
+        transition: transform .25s, opacity .25s;
+        opacity: .25;
+    }
+
+
+    .close_btn img:hover {
+        -webkit-transform: rotate(270deg);
+        -moz-transform: rotate(270deg);
+        transform: rotate(270deg);
+        opacity: 1;
+    }
+
+    .retry_btn img {
+        width: 80%
+    }
+
+
+
+}
+
+@media only screen and (max-width: 376px) {
+
+
+    .container {
+        height: 220vh;
+    }
+
+    .btn {
+        width: 140px;
+    }
+
+    .ex_m_wrap {
+        height: 17em;
+    }
+
+    .end_game {
+        padding: 40px 0 40px 0;
+    }
+
+    .retry_game {
+        padding: 50px 0 50px 0;
+    }
+
+
+}
+
+@media only screen and (max-width: 360px) {
+    .btn {
+        font-size: 1.5em;
+        width: 130px;
+        height: 50px;
+    }
+
+    .ex_m_wrap {
+        height: 16em;
+    }
+
+
+}
+
+/* Desktop */
+
+@media only screen and (min-width: 1280px) {
+
+    #footer {
+        position: absolute;
+        height: 60px;
+        right: 0;
+        bottom: -30%;
+        z-index: 1;
+        width: 100%;
+
+    }
+
+
+
+    .container {
+        width: auto;
+        margin: 0;
+        padding: 0;
+        background-image: url(../images/Loccitane_Provence_bg.jpg);
+        background-repeat: no-repeat;
+        background-size: 100% auto;
+        height: 130vh;
+        position: relative;
+    }
+
+
+    .Desktop_wrap {
+        height: 100%;
+        width: 100%;
+        position: relative;
+    }
+
+
+
+    /* 최초 문구 */
+    .start_game {
+        background-color: #fccb2af0;
+        width: 60%;
+        max-height: 45%;
+        margin: 0 auto;
+        z-index: 1;
+        position: fixed;
+        top: 10%;
+        left: 19.5%;
+        border-radius: 2.0%;
+        border: 1px solid;
+        padding: 5% 0 10% 0;
+    }
+
+    .lang_text {
+        text-align: center;
+        font-weight: 800;
+        font-size: 2.0em;
+        padding-top: 3.5%;
+    }
+
+    .start_game_wrap,
+    .end_game_wrap,
+    .retry_game_wrap {
+        max-width: 100%;
+        max-width: 100%;
+        position: relative;
+
+    }
+
+
+    .info_text {
+        text-align: center;
+        font-family: 'Noto Sans KR', sans-serif;
+        font-weight: 800;
+        font-size: 2.5em;
+        padding-bottom: 2%;
+    }
+
+    /* 성공, 실패 메세지 */
+    .end_game,
+    .retry_game {
+        background-color: #fccb2af0;
+        width: 60%;
+
+        margin: 0 auto;
+        z-index: 1;
+        position: absolute;
+        top: 30%;
+        left: 20%;
+        border-radius: 2.0%;
+        border: 1px solid;
+        padding-top: 6%;
+    }
+
+    .retry_game {
+        height: 420px;
+    }
+
+
+    .end_game {
+        height: 500px;
+    }
+
+    .close_btn_wrap {
+        position: absolute;
+        left: 0px;
+        top: 0px;
+        height: 60px;
+        width: 100%;
+    }
+
+    .close_btn img {
+        top: 20%;
+        right: 1%;
+        width: 3.5%;
+        height: auto;
+        position: absolute;
+        -webkit-transition: -webkit-transform .25s, opacity .25s;
+        -moz-transition: -moz-transform .25s, opacity .25s;
+        transition: transform .25s, opacity .25s;
+        opacity: .25;
+    }
+
+
+    .close_btn img:hover {
+        -webkit-transform: rotate(270deg);
+        -moz-transform: rotate(270deg);
+        transform: rotate(270deg);
+        opacity: 1;
+    }
+
+    .retry_btn {
+        padding-top: 2%;
+    }
+
+    .retry_btn img {
+        width: 10%
+    }
+
+    /* 중간 */
+    .landmark_section {
+        position: absolute;
+        top: 22%;
+        left: 0;
+        width: 100%;
+    }
+
+    .landmark_wrap {
+        width: 100%;
+        position: relative;
+    }
+
+    .landmark_items_1,
+    .landmark_items_2 {
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        padding: 0 5% 0 8%;
+    }
+
+    .landmark_items_2 {
+        padding-top: 20%;
+    }
+
+    .landmark_items {
+        float: left;
+    }
+
+    .landmark_items img {
+        max-width: 80%;
+    }
+
+    .right {
+        float: right;
+    }
+
+
+
+    /* 하단 */
+    .ex_m_section {
+        position: absolute;
+        left: 0;
+        bottom: 7%;
+        width: 100%;
+        margin: auto;
+    }
+
+    .ex_title {
+        text-align: center;
+        padding-bottom: 3%;
+        font-size: 2.5em;
+        font-weight: 100;
+
+    }
+
+    .title_text {
+        font-size: 2.3em;
+        background-color: #fccb2af0;
+        text-align: center;
+        font-family: "Noto Sans KR", sans-serif;
+        font-weight: 700;
+        padding-bottom: 2%;
+
+    }
+
+    .ex_m_wrap {
+        position: relative;
+    }
+
+    .ex_1 {
+        float: right;
+        width: 50%;
+        position: absolute;
+        text-align: right;
+    }
+
+    .margin-left {
+        margin-left: 7%;
+    }
+
+    .margin-right {
+        margin-right: 6%;
+    }
+
+    .ex_2 {
+        float: right;
+        width: 50%;
+    }
+
+
+    .ex_m_1,
+    .ex_m_2 {
+        display: inline;
+    }
+
+
+
+    .btn {
+        border: none;
+        padding: 0px 20px 0px 20px;
+        width: 168px;
+        height: 52px;
+        border-radius: 12px;
+        font-size: 1.9em;
+        color: white;
+        font-weight: 600;
+        background-color: #16243e;
+    }
+
+    .a_btn {
+        border: none;
+        width: 150px;
+        border-radius: 12px;
+        font-size: 1.8em;
+        color: white;
+        font-weight: 600;
+        background-color: #16243e;
+    }
+
+    .btn_section {
+        padding-top: 40px;
+    }
+
+    .margin-center {
+        width: 19%;
+        margin: auto;
+    }
+
+    .hidden {
+        display: none;
+    }
+
+}
+
+/** tablet landscape and old desktops **/
+
+@media only screen and (min-width: 1024px) and (max-width: 1279px) {
+
+    #footer {
+        position: absolute;
+        height: 60px;
+        right: 0;
+        bottom: 0;
+        z-index: 1;
+        width: 100%;
+
+    }
+
+    .lang {
+        font-size: 1.3em;
+        font-weight: 800;
+        text-align: center;
+        color: white;
+    }
+
+    .lang_text {
+        text-align: center;
+        font-weight: 800;
+        font-size: 2.0em;
+        padding-top: 3.5%;
+    }
+
+    .container {
+        width: auto;
+        margin: 0;
+        padding: 0;
+        background-image: url(../images/Loccitane_Provence_bg.jpg);
+        background-repeat: no-repeat;
+        background-size: 100% auto;
+        height: 95vh;
+        position: relative;
+    }
+
+    .Desktop_wrap {
+        height: 100%;
+        width: 100%;
+        position: relative;
+    }
+
+    /* 최초 문구 */
+    .start_game {
+        background-color: #fccb2af0;
+        width: 60%;
+        margin: 0 auto;
+        z-index: 1;
+        position: absolute;
+        top: 20%;
+        left: 19.5%;
+        border-radius: 2.0%;
+        border: 1px solid;
+        padding: 100px 0 100px 0;
+    }
+
+
+
+
+    .start_game_wrap,
+    .end_game_wrap,
+    .retry_game_wrap {
+        max-width: 100%;
+        max-width: 100%;
+        position: relative;
+
+    }
+
+    .info_text {
+        text-align: center;
+        font-family: 'Noto Sans KR', sans-serif;
+        font-weight: 700;
+        font-size: 2em;
+        padding-bottom: 2%;
+    }
+
+    /* 성공, 실패 메세지 */
+    .end_game,
+    .retry_game {
+        background-color: #fccb2af0;
+        width: 60%;
+        margin: 0 auto;
+        z-index: 1;
+        position: absolute;
+        top: 30%;
+        left: 20%;
+        border-radius: 2.0%;
+        border: 1px solid;
+        padding: 100px 0 100px 0;
+    }
+
+
+    .close_btn_wrap {
+        position: absolute;
+        left: 0px;
+        top: 0px;
+        height: 60px;
+        width: 100%;
+    }
+
+    .close_btn img {
+        top: 20%;
+        right: 1%;
+        width: 3.5%;
+        height: auto;
+        position: absolute;
+        -webkit-transition: -webkit-transform .25s, opacity .25s;
+        -moz-transition: -moz-transform .25s, opacity .25s;
+        transition: transform .25s, opacity .25s;
+        opacity: .25;
+    }
+
+
+    .close_btn img:hover {
+        -webkit-transform: rotate(270deg);
+        -moz-transform: rotate(270deg);
+        transform: rotate(270deg);
+        opacity: 1;
+    }
+
+    .retry_btn {
+        padding-top: 3%;
+    }
+
+    .retry_btn img {
+        width: 12%
+    }
+
+    /* 중간 */
+    .landmark_section {
+        position: absolute;
+        top: 22%;
+        left: 3%;
+        width: 100%;
+    }
+
+    .landmark_wrap {
+        width: 100%;
+        position: relative;
+    }
+
+    .landmark_items_1,
+    .landmark_items_2 {
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        padding: 0 0 0 8%;
+    }
+
+    .landmark_items_2 {
+        padding-top: 20%;
+    }
+
+    .landmark_items {
+        float: left;
+    }
+
+    .landmark_items img {
+        max-width: 50%;
+    }
+
+    .right {
+        float: right;
+    }
+
+
+    /* 하단 */
+    .ex_title {
+        font-size: 2.0em;
+        text-align: center;
+        padding-bottom: 2%;
+    }
+
+    .ex_m_section {
+        position: absolute;
+        left: 0;
+        bottom: 12%;
+        width: 100%;
+        margin: auto;
+    }
+
+
+    .title_text {
+        font-size: 2.3em;
+        background-color: #fccb2af0;
+        text-align: center;
+        font-family: "Noto Sans KR", sans-serif;
+        font-weight: 700;
+        padding-bottom: 2%;
+
+    }
+
+    .ex_m_wrap {
+        position: relative;
+    }
+
+    .ex_1 {
+        float: right;
+        width: 50%;
+        position: absolute;
+        text-align: right;
+    }
+
+    .margin-left {
+        margin-left: 7%;
+    }
+
+    .margin-right {
+        margin-right: 6%;
+    }
+
+
+
+    .ex_2 {
+        float: right;
+        width: 50%;
+    }
+
+
+    .ex_m_1,
+    .ex_m_2 {
+        display: inline;
+    }
+
+
+
+    .btn {
+        border: none;
+        padding: 0px 13px 0px 13px;
+        width: 168px;
+        height: 52px;
+        border-radius: 12px;
+        font-size: 2.0em;
+        color: white;
+        font-weight: 600;
+        background-color: #16243e;
+    }
+
+    .a_btn {
+        border: none;
+        width: 22%;
+        height: auto;
+        padding: 1% 5% 1% 5%;
+        border-radius: 12px;
+        font-size: 1.2em;
+        color: white;
+        font-weight: 600;
+        background-color: #16243e;
+    }
+
+
+    .btn_section {
+        padding-top: 40px;
+    }
+
+    .margin-center {
+        width: 19%;
+        margin: auto;
+    }
+
+    .hidden {
+        display: none;
+    }
+
+    /* font */
+    h2 {
+        font-size: 1.6em;
+
+    }
+
+}
+
+/** tablet portrait **/
+
+@media only screen and (min-width: 600px) and (max-width: 1023px) {
+
+    #footer {
+        position: absolute;
+        height: 60px;
+        right: 0;
+        z-index: 1;
+        width: 100%;
+
+    }
+
+    .lang {
+        font-size: 2.5em;
+        font-weight: 800;
+        text-align: center;
+        color: white;
+    }
+
+    .lang_text {
+        text-align: center;
+        font-weight: 800;
+        font-size: 2.0em;
+        padding-top: 3.5%;
+    }
+
+
+    #header {
+        position: absolute;
+        left: 0px;
+        top: 0px;
+        height: auto;
+        width: 100%;
+        z-index: 2;
+        background: #16243e;
+        padding: 5% 0% 5% 0%;
+        text-align: center;
+    }
+
+    #header img {
+        width: 40%;
+    }
+
+    .container {
+        width: 100%;
+        background-image: url(../images/Loccitane_Provence_tab_bg.jpg);
+        background-repeat: no-repeat;
+        background-size: 100% auto;
+        height: 250vh;
+        position: relative;
+    }
+
+
+    /* 상단 */
+    /* 중앙 사진 */
+    .landmark_items_1,
+    .landmark_items_2 {
+        list-style: none;
+        width: 100%;
+    }
+
+    .landmark_items_1 img,
+    .landmark_items_2 img {
+        max-width: 100%;
+        max-height: 100%;
+    }
+
+    .landmark_section {
+        position: absolute;
+        left: 0%;
+        bottom: 23%;
+        width: 100%;
+        text-align: center;
+        margin: auto;
+    }
+
+    /* 하단 */
+    .ex_m_section {
+        width: 90%;
+        bottom: 3.5%;
+        left: 0%;
+        padding-left: 5%;
+        position: absolute;
+
+
+    }
+
+
+    .ex_m_wrap {
+        width: 100%;
+        height: 25em;
+        border-radius: 15px;
+        position: relative;
+        background-color: #FAC225;
+    }
+
+    .ex_title {
+        font-size: 3.3em;
+        text-align: center;
+        margin-bottom: 11%;
+        margin-left: 4%;
+    }
+
+    .ex_m_1 {
+        padding: 5% 4% 5% 4%;
+        text-align: right;
+        width: 280px;
+        float: left;
+    }
+
+
+    .ex_m_2 {
+        padding: 5%;
+        text-align: center;
+        width: 280px;
+        float: right;
+    }
+
+
+
+
+    .ex_m_1 img,
+    .ex_m_2 img {
+        width: 100%;
+        padding-bottom: 20px;
+    }
+
+
+    /* 메세지 */
+    .btn {
+        border: none;
+        padding: 5% 10% 5% 10%;
+        width: 80%;
+        height: auto;
+        border-radius: 12px;
+        font-size: 3em;
+        color: white;
+        font-weight: 600;
+        background-color: #16243e;
+    }
+
+    .margin-center {
+        width: 50%;
+        margin: auto;
+
+    }
+
+    .m_hidden {
+        display: none;
+    }
+
+    .start_game {
+        background-color: #fccb2af0;
+        width: 90%;
+        margin: 0 auto;
+        z-index: 1;
+        position: fixed;
+        top: 20%;
+        left: 5.5%;
+        border-radius: 2%;
+        border: 1px solid;
+        padding: 100px 0 100px 0;
+    }
+
+    .end_game,
+    .retry_game {
+        background-color: #fccb2ae8;
+        width: 90%;
+        margin: 0 auto;
+        z-index: 1;
+        position: fixed;
+        top: 20%;
+        left: 5.5%;
+        border-radius: 2%;
+        border: 1px solid;
+        padding: 120px 0 120px 0;
+    }
+
+    .btn_section {
+        padding: 0 24%;
+    }
+
+
+    .info_text {
+        text-align: center;
+        font-family: 'Noto Sans KR', sans-serif;
+        font-weight: 800;
+        font-size: 2.4em;
+        word-break: keep-all;
+        padding: 0 10% 10% 10%;
+    }
+
+    .retry_btn {
+        margin: auto;
+        width: 25%
+    }
+
+    .retry_btn img {
+        width: 100%;
+    }
+
+    .close_btn_wrap {
+        position: absolute;
+        left: 0px;
+        top: 0px;
+        height: 60px;
+        width: 100%;
+    }
+
+    .close_btn img {
+        top: 20%;
+        right: 3%;
+        width: 10%;
+        height: auto;
+        position: absolute;
+        -webkit-transition: -webkit-transform .25s, opacity .25s;
+        -moz-transition: -moz-transform .25s, opacity .25s;
+        transition: transform .25s, opacity .25s;
+        opacity: .25;
+    }
+
+
+
+
+    .close_btn img:hover {
+        -webkit-transform: rotate(270deg);
+        -moz-transform: rotate(270deg);
+        transform: rotate(270deg);
+        opacity: 1;
+    }
+
+    .retry_btn img {
+        width: 80%
+    }
+
+    .normal {
+        font-size: 0.8em;
+    }
+
+}
+
+.cn:before {
+    content: " ";
+    position: absolute;
+    background-image: url(../images/china_flag.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 50px;
+    height: 100%;
+}
+
+.cn, .kr {
+    position: relative;
+    margin-right: 20px;
+}
+
+.kr:before {
+    content: " ";
+    position: absolute;
+    background-image: url(../images/korea_flag.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 50px;
+    height: 100%;
+}
